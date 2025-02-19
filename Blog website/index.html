@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogWave | Modern Creative Blog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2A2A2A;
+            --accent-color: #FF6B6B;
+            --text-color: #333;
+            --section-bg: #f8f9fa;
+        }
+
+        .custom-header {
+            background: linear-gradient(135deg, #1f3d56, #346790);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .navbar-nav .nav-link i {
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        .brand-logo {
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+            font-size: 2rem;
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+         .social-icon {
+            color: white;
+            margin-left: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+         .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+         .about-section1 {
+            background: #f0f8ff;
+            padding: 10rem 8rem;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+
+        .featured-post {
+            position: relative;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .featured-post img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .post-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 12px;
+            margin: 1rem 0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            margin: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-heading:after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+       .contact-section {
+            padding: 4rem 0;
+        }
+        
+         ..featured-post12 {
+            background: #f0f8ff;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+                /* AI Section */
+        .ai-section {
+            background: #FFFFFF;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+
+        .ai-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .ai-description {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            color: var(--text-color);
+        }
+        
+       .testimonial-section {
+            background: #FFFFFF;
+            padding: 4rem 2rem;
+            color: black;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+          .subscribe-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .featured-post img {
+                height: 300px;
+            }
+            
+            .brand-logo {
+                font-size: 1.5rem;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with Navigation -->
+<header class="custom-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand brand-logo" href="#">BlogWave</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">
+                            <i class="fas fa-home me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="fas fa-info-circle me-2"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">
+                            <i class="fas fa-blog me-2"></i>Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-2"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Featured Post -->
+<section class="featured-post" id="home">
+    <img src="how-to-blog.jpg" alt="Featured Post">
+    <div class="post-overlay">
+        <div class="container">
+            <span class="category-tag">Featured</span>
+            <h2>Discover the Beauty of Nature</h2>
+            <p>Explore the wonders of our natural world through stunning photography and insightful commentary.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-heading">Our Speciality</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="depositphotos_120681544-stock-photo-man-using-laptop-on-workplace.jpg" alt="Our Speciality" class="img-fluid rounded-3">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="d-flex align-items-center mb-4">
+                    <i class="fas fa-rocket feature-icon me-4"></i>
+                    <h3>Modern & Responsive Design</h3>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <i class="fas fa-pen-nib feature-icon me-4"></i>
+                    <h3>Creative Content Creation</h3>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-users feature-icon me-4"></i>
+                    <h3>Community Driven</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts Grid -->
+<main class="container" id="blog">
+    <h2 class="section-heading">Latest Posts</h2>
+    <div class="row">
+        <!-- Post 1 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="mountain-explorer-pauses-stockcake.jpg" alt="Mountain" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Adventure</span>
+                <h3>Mountain Exploration</h3>
+                <p>Discover the world's most breathtaking mountain ranges and hiking trails.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="city.jpg" alt="City" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Urban</span>
+                <h3>City Life Stories</h3>
+                <p>Explore urban landscapes and modern city living through our lens.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="Technology-Trends-That-You-Should-Know-2-01.jpg" alt="Tech" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Technology</span>
+                <h3>Future Tech Trends</h3>
+                <p>Stay updated with the latest innovations shaping our future.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+        
+                <!-- Post 4 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="content.png" alt="Tech" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Content</span>
+                <h3>How to Create Engaging Content</h3>
+                        <p>Discover the art of crafting content that resonates with your audience and keeps them coming back for more...</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+        
+         <!-- Post 5 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="web.jpg" alt="Tech" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Web Development</span>
+                                    <h3>Top Web Development Trends in 2025</h3>
+                    <p>Discover the latest trends shaping the future of web development in 2025.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+        
+                 <!-- Post 6 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="digital.png" alt="Tech" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Digital World</span>
+                                      <h3><i class="fas fa-chart-line"></i>Understanding the Digital World</h3>
+                    <p>Dive into the world of digital marketing and the tools driving success in the digital space.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+    </div>
+</main>
+
+    </div>
+</main>
+
+<!-- Trending Posts -->
+<section class="container trending-section">
+    <h2 class="section-heading">Trending Posts</h2>
+    <div class="row">
+        <!-- Trend 1 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="b2ap3_large_294409557_technology_innovation_400.jpg" alt="City" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Tech</span>
+                <h3>Tech Innovation</h3>
+                <p>Explore urban landscapes and modern city living through our lens.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+        
+                <!-- Trend 2 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="nature.jpg" alt="City" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Nature</span>
+                <h3>Nature Adventure</h3>
+                <p>Explore urban landscapes and modern city living through our lens.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+                <!-- Trend 3 -->
+        <div class="col-md-4">
+            <article class="blog-card p-4">
+                <img src="life.png" alt="City" class="img-fluid mb-3 rounded">
+                <span class="category-tag">Tips</span>
+                <h3>Lifestyle Tips</h3>
+                <p>Explore urban landscapes and modern city living 9r hsjs kek.</p>
+                <a href="#" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+            </article>
+        </div>
+
+
+
+
+    </div>
+</section>
+
+<!-- AI Section -->
+<section class="ai-section" id="ai">
+    <center>  <h2 class="section-heading">Artificial Intelligence</h2></center>
+    <img src="blog-image-1.jpg" alt="AI Image">
+               <br>
+               <br>
+    <h7 class="ai-description">
+        Artificial Intelligence (AI) is revolutionizing industries worldwide, from healthcare to finance, and even creative arts. AI enhances human capabilities, automates tedious tasks, and opens new avenues for innovation. Explore how AI is shaping our future and its potential to change the way we live and work.
+    </h7>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonial-section">
+  <h2 class="section-heading">What Readers Says</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"BlogWave has been a true inspiration to me. Their content is fresh, insightful, and diverse. I love the creative writing tips and travel posts!"</p>
+                    <strong>- Anil Pandey.</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"The photography and content quality on BlogWave is top-notch. It feels like I'm reading about my own travels!"</p>
+                    <strong>- Pankaj Yadav.</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"I learn something new every time I visit BlogWave. The articles are well-researched and truly informative."</p>
+                    <strong>- Rahul Sharma.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Subscribe Section -->
+<section class="subscribe-section" id="contact">
+    <h2 class="section-heading">Stay Updated!</h2>
+    <p>Sign up for our newsletter and get the latest blog posts and updates directly to your inbox.</p>
+    <form class="d-flex justify-content-center mt-4">
+        <input type="email" class="form-control w-50" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary ms-2">Subscribe</button>
+    </form>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p class="mb-3">Stay Connected With Us</p>
+        <div class="social-links mb-4">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 BlogWave. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
